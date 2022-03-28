@@ -1,4 +1,4 @@
-import 'package:dart_code_viewer2/dart_code_viewer.dart';
+import 'package:dart_code_viewer2/dart_code_viewer2.dart';
 import 'package:flutter/material.dart';
 
 void main() {
