@@ -1,0 +1,22 @@
+name: dart_code_viewer2_example
+description: A Flutter application showcasing how to use the dart_code_viewer package.
+publish_to: "none"
+version: 1.0.0
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  cupertino_icons: ^1.0.2
+  dart_code_viewer2:
+    path: ../
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
