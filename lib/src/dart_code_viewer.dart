@@ -419,7 +419,7 @@ class DartCodeViewer extends StatelessWidget {
   /// Read raw string as regular String. Converts Unicode characters to actual
   /// numbers.
   String decodeString(String string) {
-    return string.replaceAll(r'\u000a', '\n').replaceAll(r'\u0027', '\'').replaceAll(r'\u0009', '\t');
+    return string.replaceAll(r'\u000a', '\n').replaceAll(r'\u0027', '\'').replaceAll(r'\u0009', '\t').replaceAll(r'\u0022', '"');
   }
 }
 
