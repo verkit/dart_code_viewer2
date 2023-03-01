@@ -461,13 +461,15 @@ class _DartCodeViewerPage extends StatelessWidget {
             child: DartCodeViewerTheme.of(context).copyButtonText,
           ),
         Expanded(
-          child: SingleChildScrollView(
-            child: RichText(
-              textDirection: TextDirection.ltr,
-              text: _richTextCode,
-            ),
+            child: SingleChildScrollView(
+                child: SelectableText.rich(
+          TextSpan(
+            text: "",
+            children: [_richTextCode],
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-        ),
+          textDirection: TextDirection.ltr,
+        ))),
       ],
     );
   }
