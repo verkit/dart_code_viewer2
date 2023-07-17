@@ -298,7 +298,7 @@ class DartCodeViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final codeTextStyle = Theme.of(context).textTheme.bodyText1;
+    final codeTextStyle = Theme.of(context).textTheme.bodyLarge;
 
     final lightModeOn = Theme.of(context).brightness == Brightness.light;
 
@@ -335,20 +335,44 @@ class DartCodeViewer extends StatelessWidget {
 
     var dartCodeViewerThemeData = DartCodeViewerTheme.of(context);
     dartCodeViewerThemeData = dartCodeViewerThemeData.copyWith(
-      baseStyle: baseStyle ?? dartCodeViewerThemeData.baseStyle ?? _defaultBaseStyle,
-      classStyle: classStyle ?? dartCodeViewerThemeData.classStyle ?? _defaultClassStyle,
-      commentStyle: commentStyle ?? dartCodeViewerThemeData.commentStyle ?? _defaultCommentStyle,
-      constantStyle: constantStyle ?? dartCodeViewerThemeData.constantStyle ?? _defaultConstantStyle,
-      keywordStyle: keywordStyle ?? dartCodeViewerThemeData.keywordStyle ?? _defaultKeywordStyle,
-      numberStyle: numberStyle ?? dartCodeViewerThemeData.numberStyle ?? _defaultNumberStyle,
-      punctuationStyle: punctuationStyle ?? dartCodeViewerThemeData.punctuationStyle ?? _defaultPunctuationalStyle,
-      stringStyle: stringStyle ?? dartCodeViewerThemeData.stringStyle ?? _defaultStringStyle,
-      backgroundColor:
-          backgroundColor ?? dartCodeViewerThemeData.backgroundColor ?? Theme.of(context).colorScheme.background,
-      copyButtonText: copyButtonText ?? dartCodeViewerThemeData.copyButtonText ?? _defaultCopyButtonText,
-      showCopyButton: showCopyButton ?? dartCodeViewerThemeData.showCopyButton ?? _defaultShowCopyButton,
-      height: height ?? dartCodeViewerThemeData.height ?? MediaQuery.of(context).size.height,
-      width: width ?? dartCodeViewerThemeData.width ?? MediaQuery.of(context).size.width,
+      baseStyle:
+          baseStyle ?? dartCodeViewerThemeData.baseStyle ?? _defaultBaseStyle,
+      classStyle: classStyle ??
+          dartCodeViewerThemeData.classStyle ??
+          _defaultClassStyle,
+      commentStyle: commentStyle ??
+          dartCodeViewerThemeData.commentStyle ??
+          _defaultCommentStyle,
+      constantStyle: constantStyle ??
+          dartCodeViewerThemeData.constantStyle ??
+          _defaultConstantStyle,
+      keywordStyle: keywordStyle ??
+          dartCodeViewerThemeData.keywordStyle ??
+          _defaultKeywordStyle,
+      numberStyle: numberStyle ??
+          dartCodeViewerThemeData.numberStyle ??
+          _defaultNumberStyle,
+      punctuationStyle: punctuationStyle ??
+          dartCodeViewerThemeData.punctuationStyle ??
+          _defaultPunctuationalStyle,
+      stringStyle: stringStyle ??
+          dartCodeViewerThemeData.stringStyle ??
+          _defaultStringStyle,
+      backgroundColor: backgroundColor ??
+          dartCodeViewerThemeData.backgroundColor ??
+          Theme.of(context).colorScheme.background,
+      copyButtonText: copyButtonText ??
+          dartCodeViewerThemeData.copyButtonText ??
+          _defaultCopyButtonText,
+      showCopyButton: showCopyButton ??
+          dartCodeViewerThemeData.showCopyButton ??
+          _defaultShowCopyButton,
+      height: height ??
+          dartCodeViewerThemeData.height ??
+          MediaQuery.of(context).size.height,
+      width: width ??
+          dartCodeViewerThemeData.width ??
+          MediaQuery.of(context).size.width,
     );
 
     return DartCodeViewerTheme(
@@ -384,7 +408,8 @@ class DartCodeViewer extends StatelessWidget {
   ) {
     return TextSpan(
       style: () {
-        final String? styleString = RegExp(r'codeStyle.\w*').firstMatch(string)?.group(0);
+        final String? styleString =
+            RegExp(r'codeStyle.\w*').firstMatch(string)?.group(0);
         final dartCodeViewerTheme = dartCodeViewerThemeData;
 
         switch (styleString) {
@@ -419,7 +444,11 @@ class DartCodeViewer extends StatelessWidget {
   /// Read raw string as regular String. Converts Unicode characters to actual
   /// numbers.
   String decodeString(String string) {
-    return string.replaceAll(r'\u000a', '\n').replaceAll(r'\u0027', '\'').replaceAll(r'\u0009', '\t').replaceAll(r'\u0022', '"');
+    return string
+        .replaceAll(r'\u000a', '\n')
+        .replaceAll(r'\u0027', '\'')
+        .replaceAll(r'\u0009', '\t')
+        .replaceAll(r'\u0022', '"');
   }
 }
 
@@ -466,7 +495,7 @@ class _DartCodeViewerPage extends StatelessWidget {
           TextSpan(
             text: "",
             children: [_richTextCode],
-            style: TextStyle(fontWeight: FontWeight.bold),
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           textDirection: TextDirection.ltr,
         ))),
