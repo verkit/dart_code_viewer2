@@ -49,13 +49,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.4"
-  dart_code_viewer2:
+  dart_code_viewer_x:
     dependency: "direct main"
     description:
       path: ".."
       relative: true
     source: path
-    version: "1.0.1"
+    version: "1.0.0"
   fake_async:
     dependency: transitive
     description:
