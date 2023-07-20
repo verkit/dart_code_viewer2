@@ -2,6 +2,8 @@
 
 This package is an updated safety version of [dart_code_viewer2](https://pub.dev/packages/dart_code_viewer2), which is a package, that is the null safety version of [dart_code_viewer](https://pub.dev/packages/dart_code_viewer). I will try my best to keep this updated! Hopefully nobody needs to create a new fork of this package...
 
+Join the discord for discussions about this package: [![](https://dcbadge.vercel.app/api/server/xC6wtbzZnP)](https://discord.gg/xC6wtbzZnP)
+
 # dart_code_viewer_x
 
 The `dart_code_viewer_x` package for Flutter allows you to easily show and copy dart code in your Flutter application.
@@ -14,7 +16,7 @@ With the `dart_code_viewer_x` package, you can show Dart code in a Flutter appli
 
 The code viewer can be used to display dart code. By default the `DartCodeViewer` gives you a Theme based code view. If you are using a `ThemeMode` that is light than you will get the light option. Note that the default background of the code viewer is based off `ColorScheme.background`.
 
-The code viewer requieres a non-null `data` String as required input.
+The code viewer requires a non-null `data` String as required input.
 
 The `DartCodeViewer` requires one of its ancestors to be a `Material` widget. This is because the code viewer uses the `MediaQuery` widget. Which is typically introduced by the [MaterialApp] or [WidgetsApp] widget at the top of your application widget tree.
 
