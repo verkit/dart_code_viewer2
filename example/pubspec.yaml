@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   cupertino_icons: ^1.0.2
-  dart_code_viewer_x:
+  dart_code_viewer2:
     path: ../
   flutter:
     sdk: flutter
