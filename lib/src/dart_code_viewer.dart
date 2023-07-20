@@ -298,55 +298,55 @@ class DartCodeViewer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final codeTextStyle = Theme.of(context).textTheme.bodyText1;
+    final codeTextStyle = Theme.of(context).textTheme.bodyLarge;
 
     final lightModeOn = Theme.of(context).brightness == Brightness.light;
 
     // These are defaults for the different types of text styles. The default
     // returns two different types of styles depending on the brightness of the
     // application.
-    final _defaultBaseStyle = codeTextStyle?.copyWith(
+    final defaultBaseStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.blueGrey.shade800 : Colors.blueGrey.shade50,
     );
-    final _defaultClassStyle = codeTextStyle?.copyWith(
+    final defaultClassStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.purple.shade500 : Colors.purple.shade200,
     );
-    final _defaultCommentStyle = codeTextStyle?.copyWith(
+    final defaultCommentStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.pink.shade600 : Colors.pink.shade300,
     );
-    final _defaultConstantStyle = codeTextStyle?.copyWith(
+    final defaultConstantStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.indigo.shade500 : Colors.yellow.shade700,
     );
-    final _defaultKeywordStyle = codeTextStyle?.copyWith(
+    final defaultKeywordStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.indigo.shade500 : Colors.cyan.shade300,
     );
-    final _defaultNumberStyle = codeTextStyle?.copyWith(
+    final defaultNumberStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.red.shade700 : Colors.yellow.shade700,
     );
-    final _defaultPunctuationalStyle = codeTextStyle?.copyWith(
+    final defaultPunctuationalStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.blueGrey.shade800 : Colors.blueGrey.shade50,
     );
-    final _defaultStringStyle = codeTextStyle?.copyWith(
+    final defaultStringStyle = codeTextStyle?.copyWith(
       color: lightModeOn ? Colors.green.shade700 : Colors.lightGreen.shade400,
     );
 
-    const _defaultCopyButtonText = Text('COPY ALL');
-    const _defaultShowCopyButton = true;
+    const defaultCopyButtonText = Text('COPY ALL');
+    const defaultShowCopyButton = true;
 
     var dartCodeViewerThemeData = DartCodeViewerTheme.of(context);
     dartCodeViewerThemeData = dartCodeViewerThemeData.copyWith(
-      baseStyle: baseStyle ?? dartCodeViewerThemeData.baseStyle ?? _defaultBaseStyle,
-      classStyle: classStyle ?? dartCodeViewerThemeData.classStyle ?? _defaultClassStyle,
-      commentStyle: commentStyle ?? dartCodeViewerThemeData.commentStyle ?? _defaultCommentStyle,
-      constantStyle: constantStyle ?? dartCodeViewerThemeData.constantStyle ?? _defaultConstantStyle,
-      keywordStyle: keywordStyle ?? dartCodeViewerThemeData.keywordStyle ?? _defaultKeywordStyle,
-      numberStyle: numberStyle ?? dartCodeViewerThemeData.numberStyle ?? _defaultNumberStyle,
-      punctuationStyle: punctuationStyle ?? dartCodeViewerThemeData.punctuationStyle ?? _defaultPunctuationalStyle,
-      stringStyle: stringStyle ?? dartCodeViewerThemeData.stringStyle ?? _defaultStringStyle,
+      baseStyle: baseStyle ?? dartCodeViewerThemeData.baseStyle ?? defaultBaseStyle,
+      classStyle: classStyle ?? dartCodeViewerThemeData.classStyle ?? defaultClassStyle,
+      commentStyle: commentStyle ?? dartCodeViewerThemeData.commentStyle ?? defaultCommentStyle,
+      constantStyle: constantStyle ?? dartCodeViewerThemeData.constantStyle ?? defaultConstantStyle,
+      keywordStyle: keywordStyle ?? dartCodeViewerThemeData.keywordStyle ?? defaultKeywordStyle,
+      numberStyle: numberStyle ?? dartCodeViewerThemeData.numberStyle ?? defaultNumberStyle,
+      punctuationStyle: punctuationStyle ?? dartCodeViewerThemeData.punctuationStyle ?? defaultPunctuationalStyle,
+      stringStyle: stringStyle ?? dartCodeViewerThemeData.stringStyle ?? defaultStringStyle,
       backgroundColor:
           backgroundColor ?? dartCodeViewerThemeData.backgroundColor ?? Theme.of(context).colorScheme.background,
-      copyButtonText: copyButtonText ?? dartCodeViewerThemeData.copyButtonText ?? _defaultCopyButtonText,
-      showCopyButton: showCopyButton ?? dartCodeViewerThemeData.showCopyButton ?? _defaultShowCopyButton,
+      copyButtonText: copyButtonText ?? dartCodeViewerThemeData.copyButtonText ?? defaultCopyButtonText,
+      showCopyButton: showCopyButton ?? dartCodeViewerThemeData.showCopyButton ?? defaultShowCopyButton,
       height: height ?? dartCodeViewerThemeData.height ?? MediaQuery.of(context).size.height,
       width: width ?? dartCodeViewerThemeData.width ?? MediaQuery.of(context).size.width,
     );
@@ -429,10 +429,10 @@ class _DartCodeViewerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final _richTextCode = code;
-    final _plainTextCode = _richTextCode.toPlainText();
+    final richTextCode = code;
+    final plainTextCode = richTextCode.toPlainText();
 
-    void _showSnackBarOnCopySuccess(dynamic result) {
+    void showSnackBarOnCopySuccess(dynamic result) {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text('Copied to Clipboard'),
@@ -440,7 +440,7 @@ class _DartCodeViewerPage extends StatelessWidget {
       );
     }
 
-    void _showSnackBarOnCopyFailure(Object exception) {
+    void showSnackBarOnCopyFailure(Object exception) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
           content: Text('Failure to copy to clipboard: $exception'),
@@ -454,9 +454,9 @@ class _DartCodeViewerPage extends StatelessWidget {
         if (DartCodeViewerTheme.of(context).showCopyButton!)
           ElevatedButton(
             onPressed: () async {
-              await Clipboard.setData(ClipboardData(text: _plainTextCode))
-                  .then(_showSnackBarOnCopySuccess)
-                  .catchError(_showSnackBarOnCopyFailure);
+              await Clipboard.setData(ClipboardData(text: plainTextCode))
+                  .then(showSnackBarOnCopySuccess)
+                  .catchError(showSnackBarOnCopyFailure);
             },
             child: DartCodeViewerTheme.of(context).copyButtonText,
           ),
@@ -465,8 +465,8 @@ class _DartCodeViewerPage extends StatelessWidget {
                 child: SelectableText.rich(
           TextSpan(
             text: "",
-            children: [_richTextCode],
-            style: TextStyle(fontWeight: FontWeight.bold),
+            children: [richTextCode],
+            style: const TextStyle(fontWeight: FontWeight.bold),
           ),
           textDirection: TextDirection.ltr,
         ))),
