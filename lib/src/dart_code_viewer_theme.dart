@@ -190,7 +190,7 @@ class DartCodeViewerThemeData with Diagnosticable {
 
   @override
   int get hashCode {
-    return hashValues(
+    return Object.hash(
       baseStyle,
       classStyle,
       commentStyle,
@@ -405,16 +405,21 @@ class DartCodeViewerTheme extends InheritedTheme {
   ///    Numbers => numberStyle
   ///    Declarations => constantStyle
   static DartCodeViewerThemeData of(BuildContext context) {
-    final dartCodeViewerTheme = context.dependOnInheritedWidgetOfExactType<DartCodeViewerTheme>();
+    final dartCodeViewerTheme =
+        context.dependOnInheritedWidgetOfExactType<DartCodeViewerTheme>();
     return dartCodeViewerTheme?.data ?? const DartCodeViewerThemeData();
   }
 
   @override
   Widget wrap(BuildContext context, Widget child) {
-    final ancestorTheme = context.findAncestorWidgetOfExactType<DartCodeViewerTheme>();
-    return identical(this, ancestorTheme) ? child : DartCodeViewerTheme(data: data, child: child);
+    final ancestorTheme =
+        context.findAncestorWidgetOfExactType<DartCodeViewerTheme>();
+    return identical(this, ancestorTheme)
+        ? child
+        : DartCodeViewerTheme(data: data, child: child);
   }
 
   @override
-  bool updateShouldNotify(DartCodeViewerTheme oldWidget) => data != oldWidget.data;
+  bool updateShouldNotify(DartCodeViewerTheme oldWidget) =>
+      data != oldWidget.data;
 }

@@ -1,28 +1,31 @@
 ## Disclaimer
-This package is null safety version of [dart_code_viewer](https://pub.dev/packages/dart_code_viewer)
 
-# dart_code_viewer
+This package is an updated safety version of [dart_code_viewer2](https://pub.dev/packages/dart_code_viewer2), which is a package, that is the null safety version of [dart_code_viewer](https://pub.dev/packages/dart_code_viewer). I will try my best to keep this updated! Hopefully nobody needs to create a new fork of this package...
 
-The `dart_code_viewer` package for Flutter allows you to easily show and copy dart code in your Flutter application.
+Join the discord for discussions about this package: [![](https://dcbadge.vercel.app/api/server/xC6wtbzZnP)](https://discord.gg/xC6wtbzZnP)
+
+# dart_code_viewer_x
+
+The `dart_code_viewer_x` package for Flutter allows you to easily show and copy dart code in your Flutter application.
 
 ## Getting Started
 
 ![Dart Code Viewer Example in light and dark Theme Mode.](images/dart_code_viewer.gif)
 
-With the `dart_code_viewer` package, you can show Dart code in a Flutter application. The dart_code_viewer is documented well and uses Flutters pattern with Theming.
+With the `dart_code_viewer_x` package, you can show Dart code in a Flutter application. The dart_code_viewer is documented well and uses Flutters pattern with Theming.
 
 The code viewer can be used to display dart code. By default the `DartCodeViewer` gives you a Theme based code view. If you are using a `ThemeMode` that is light than you will get the light option. Note that the default background of the code viewer is based off `ColorScheme.background`.
 
-The code viewer requieres a non-null `data` String as required input.
+The code viewer requires a non-null `data` String as required input.
 
 The `DartCodeViewer` requires one of its ancestors to be a `Material` widget. This is because the code viewer uses the `MediaQuery` widget. Which is typically introduced by the [MaterialApp] or [WidgetsApp] widget at the top of your application widget tree.
 
-To use `dart_code_viewer` first you must add the 'dart_code_viewer' package to your [oubspec dependencies](https://pub.dev/packages/dart_code_viewer#-installing-tab-)
+To use `dart_code_viewer_x` first you must add the 'dart_code_viewer_x' package to your [oubspec dependencies](https://pub.dev/packages/dart_code_viewer_x#-installing-tab-)
 
 To import `DartCodeViewer`;
 
 ```dart
-import 'package:dart_code_viewer/dart_code_viewer.dart';
+import 'package:dart_code_viewer_x/dart_code_viewer_x.dart';
 ```
 
 To use `DartCodeViewer` with the default DartCodeViewer:
@@ -57,15 +60,15 @@ This will change the background color of the CodeViewer to Pink.
 You can use this [Code viewer tool](https://romannurik.github.io/SlidesCodeHighlighter/) to choose the color for each different highlighted token style. On the left side you put your example code and on the right you can choose the colors you want the code viewer to display. Below is a table that shows you the difference between the code viewer tool and the dart code viewer parameter.
 
 | Code Viewer Tool | Dart Code Viewer Parameter |
-| --- | --- |
-| background | backgroundColor |
-| plain text | baseStyle |
-|  Punctuation | punctuationStyle |
-|  String, values | stringStyle |
-|  Keywords, tags | keywordStyle |
-|  Comments | commentStyle |
-|  Types | classStyle |
-|  Numbers | numberStyle |
+| ---------------- | -------------------------- |
+| background       | backgroundColor            |
+| plain text       | baseStyle                  |
+| Punctuation      | punctuationStyle           |
+| String, values   | stringStyle                |
+| Keywords, tags   | keywordStyle               |
+| Comments         | commentStyle               |
+| Types            | classStyle                 |
+| Numbers          | numberStyle                |
 
 You can use `DartCodeViewer` other constructor `DartCodeViewer.textColor` to change the color properties instead of the TextStyles. You can also set the TextStyle incase you don't want to use the default textStlye `RobotoMono`. Here is an example on how you can use this constructor:
 
@@ -138,12 +141,12 @@ void main() {
 You can use this [Code viewer tool](https://romannurik.github.io/SlidesCodeHighlighter/) to help you with Theming. On the left side you put your example code and on the right you can choose the colors you want the code viewer to display. Below is a table that shows you the difference between the code viewer tool and the dart code viewer parameter.
 
 | Code Viewer Tool | Dart Code Viewer Parameter |
-| --- | --- |
-| background | backgroundColor |
-| plain text | baseStyle |
-|  Punctuation | punctuationStyle |
-|  String, values | stringStyle |
-|  Keywords, tags | keywordStyle |
-|  Comments | commentStyle |
-|  Types | classStyle |
-|  Numbers | numberStyle |
+| ---------------- | -------------------------- |
+| background       | backgroundColor            |
+| plain text       | baseStyle                  |
+| Punctuation      | punctuationStyle           |
+| String, values   | stringStyle                |
+| Keywords, tags   | keywordStyle               |
+| Comments         | commentStyle               |
+| Types            | classStyle                 |
+| Numbers          | numberStyle                |
