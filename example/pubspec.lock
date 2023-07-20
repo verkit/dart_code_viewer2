@@ -45,11 +45,11 @@ packages:
     dependency: "direct main"
     description:
       name: cupertino_icons
-      sha256: "1989d917fbe8e6b39806207df5a3fdd3d816cbd090fac2ce26fb45e9a71476e5"
+      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.4"
-  dart_code_viewer_x:
+    version: "1.0.5"
+  dart_code_viewer2:
     dependency: "direct main"
     description:
       path: ".."
@@ -192,5 +192,5 @@ packages:
     source: hosted
     version: "2.1.4"
 sdks:
-  dart: ">=3.0.3 <4.0.0"
+  dart: ">=3.0.0-0 <4.0.0"
   flutter: ">=1.17.0"

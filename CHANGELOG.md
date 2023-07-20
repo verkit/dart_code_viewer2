@@ -1,3 +1,8 @@
+## 1.0.2
+
+- Support dart sdk >=2.14.0 <4.0.0
+- clean deprecated code
+
 ## 1.0.1
 
 - Adding quotes decoded. Thanks to [M97Chahboun](https://github.com/M97Chahboun)

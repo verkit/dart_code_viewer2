@@ -5,7 +5,7 @@ version: 1.0.0
 homepage: https://github.com/lucas-goldner/Dart-Code-Viewer-X
 
 environment:
-  sdk: ">=3.0.3 <4.0.0"
+  sdk: ">=2.14.0 <4.0.0"
   flutter: ">=1.17.0"
 
 dependencies:
@@ -14,7 +14,7 @@ dependencies:
   string_scanner: ^1.1.0
 
 dev_dependencies:
-  flutter_lints: ^1.0.0
+  flutter_lints: ^2.0.2
   flutter_test:
     sdk: flutter
 
