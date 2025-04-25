@@ -335,20 +335,54 @@ class DartCodeViewer extends StatelessWidget {
 
     var dartCodeViewerThemeData = DartCodeViewerTheme.of(context);
     dartCodeViewerThemeData = dartCodeViewerThemeData.copyWith(
-      baseStyle: baseStyle ?? dartCodeViewerThemeData.baseStyle ?? defaultBaseStyle,
-      classStyle: classStyle ?? dartCodeViewerThemeData.classStyle ?? defaultClassStyle,
-      commentStyle: commentStyle ?? dartCodeViewerThemeData.commentStyle ?? defaultCommentStyle,
-      constantStyle: constantStyle ?? dartCodeViewerThemeData.constantStyle ?? defaultConstantStyle,
-      keywordStyle: keywordStyle ?? dartCodeViewerThemeData.keywordStyle ?? defaultKeywordStyle,
-      numberStyle: numberStyle ?? dartCodeViewerThemeData.numberStyle ?? defaultNumberStyle,
-      punctuationStyle: punctuationStyle ?? dartCodeViewerThemeData.punctuationStyle ?? defaultPunctuationalStyle,
-      stringStyle: stringStyle ?? dartCodeViewerThemeData.stringStyle ?? defaultStringStyle,
+      baseStyle:
+          baseStyle ?? dartCodeViewerThemeData.baseStyle ?? defaultBaseStyle,
+      classStyle:
+          classStyle ?? dartCodeViewerThemeData.classStyle ?? defaultClassStyle,
+      commentStyle:
+          commentStyle ??
+          dartCodeViewerThemeData.commentStyle ??
+          defaultCommentStyle,
+      constantStyle:
+          constantStyle ??
+          dartCodeViewerThemeData.constantStyle ??
+          defaultConstantStyle,
+      keywordStyle:
+          keywordStyle ??
+          dartCodeViewerThemeData.keywordStyle ??
+          defaultKeywordStyle,
+      numberStyle:
+          numberStyle ??
+          dartCodeViewerThemeData.numberStyle ??
+          defaultNumberStyle,
+      punctuationStyle:
+          punctuationStyle ??
+          dartCodeViewerThemeData.punctuationStyle ??
+          defaultPunctuationalStyle,
+      stringStyle:
+          stringStyle ??
+          dartCodeViewerThemeData.stringStyle ??
+          defaultStringStyle,
       backgroundColor:
-          backgroundColor ?? dartCodeViewerThemeData.backgroundColor ?? Theme.of(context).colorScheme.background,
-      copyButtonText: copyButtonText ?? dartCodeViewerThemeData.copyButtonText ?? defaultCopyButtonText,
-      showCopyButton: showCopyButton ?? dartCodeViewerThemeData.showCopyButton ?? defaultShowCopyButton,
-      height: height ?? dartCodeViewerThemeData.height ?? MediaQuery.of(context).size.height,
-      width: width ?? dartCodeViewerThemeData.width ?? MediaQuery.of(context).size.width,
+          backgroundColor ??
+          dartCodeViewerThemeData.backgroundColor ??
+          Theme.of(context).colorScheme.background,
+      copyButtonText:
+          copyButtonText ??
+          dartCodeViewerThemeData.copyButtonText ??
+          defaultCopyButtonText,
+      showCopyButton:
+          showCopyButton ??
+          dartCodeViewerThemeData.showCopyButton ??
+          defaultShowCopyButton,
+      height:
+          height ??
+          dartCodeViewerThemeData.height ??
+          MediaQuery.of(context).size.height,
+      width:
+          width ??
+          dartCodeViewerThemeData.width ??
+          MediaQuery.of(context).size.width,
     );
 
     return DartCodeViewerTheme(
@@ -358,9 +392,7 @@ class DartCodeViewer extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         height: dartCodeViewerThemeData.height,
         width: dartCodeViewerThemeData.width,
-        child: _DartCodeViewerPage(
-          codifyString(data, dartCodeViewerThemeData),
-        ),
+        child: _DartCodeViewerPage(codifyString(data, dartCodeViewerThemeData)),
       ),
     );
   }
@@ -384,8 +416,9 @@ class DartCodeViewer extends StatelessWidget {
   ) {
     return TextSpan(
       style: () {
-        final String? styleString =
-            RegExp(r'codeStyle.\w*').firstMatch(string)?.group(0);
+        final String? styleString = RegExp(
+          r'codeStyle.\w*',
+        ).firstMatch(string)?.group(0);
         final dartCodeViewerTheme = dartCodeViewerThemeData;
 
         switch (styleString) {
@@ -424,7 +457,8 @@ class DartCodeViewer extends StatelessWidget {
         .replaceAll(r'\u000a', '\n')
         .replaceAll(r'\u0027', '\'')
         .replaceAll(r'\u0009', '\t')
-        .replaceAll(r'\u0022', '"');
+        .replaceAll(r'\u0022', '"')
+        .replaceAll(r'\u0024', '\$');
   }
 }
 
@@ -438,18 +472,14 @@ class _DartCodeViewerPage extends StatelessWidget {
     final plainTextCode = richTextCode.toPlainText();
 
     void showSnackBarOnCopySuccess(dynamic result) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          content: Text('Copied to Clipboard'),
-        ),
-      );
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Copied to Clipboard')));
     }
 
     void showSnackBarOnCopyFailure(Object exception) {
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Text('Failure to copy to clipboard: $exception'),
-        ),
+        SnackBar(content: Text('Failure to copy to clipboard: $exception')),
       );
     }
 
@@ -466,15 +496,17 @@ class _DartCodeViewerPage extends StatelessWidget {
             child: DartCodeViewerTheme.of(context).copyButtonText,
           ),
         Expanded(
-            child: SingleChildScrollView(
-                child: SelectableText.rich(
-          TextSpan(
-            text: "",
-            children: [richTextCode],
-            style: const TextStyle(fontWeight: FontWeight.bold),
+          child: SingleChildScrollView(
+            child: SelectableText.rich(
+              TextSpan(
+                text: "",
+                children: [richTextCode],
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              textDirection: TextDirection.ltr,
+            ),
           ),
-          textDirection: TextDirection.ltr,
-        ))),
+        ),
       ],
     );
   }
