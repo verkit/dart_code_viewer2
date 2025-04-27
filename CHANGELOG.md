@@ -1,3 +1,9 @@
+## [1.0.3] - 2025-04-28
+
+### Added
+
+- Added a replace method to display '$' sign
+
 ## 1.0.2
 
 - Support dart sdk >=2.14.0 <4.0.0

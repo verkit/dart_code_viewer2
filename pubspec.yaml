@@ -1,7 +1,7 @@
 name: dart_code_viewer2
 description: A package to view Dart Code in your Flutter application. This
   package is null safety version of dart-code-viewer
-version: 1.0.2
+version: 1.0.3
 homepage: https://github.com/verkit/dart_code_viewer2/
 
 environment:
