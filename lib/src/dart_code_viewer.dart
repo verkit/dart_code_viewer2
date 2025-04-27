@@ -424,7 +424,7 @@ class DartCodeViewer extends StatelessWidget {
         .replaceAll(r'\u000a', '\n')
         .replaceAll(r'\u0027', '\'')
         .replaceAll(r'\u0009', '\t')
-        .replaceAll(r'\u0022', '"');
+        .replaceAll(r'\u0022', '"').replaceAll(r'\u0024', '\$');
   }
 }
 
